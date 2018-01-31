@@ -1,0 +1,2 @@
+module ScfsHelper
+end

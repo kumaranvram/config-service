@@ -1,0 +1,2 @@
+module ScfConfigurationsHelper
+end

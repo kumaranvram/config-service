@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @scf_configuration.client.name %>
+</p>
+
+<p>
+  <strong>Scf:</strong>
+  <%= @scf_configuration.scf.name_with_description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @scf_configuration.value %>
+</p>
+
+<%= link_to 'Edit', edit_scf_configuration_path(@scf_configuration) %> |
+<%= link_to 'Back', scf_configurations_path %>

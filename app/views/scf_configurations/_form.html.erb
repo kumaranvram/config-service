@@ -1,0 +1,38 @@
+<%= form_with(model: scf_configuration, local: true) do |form| %>
+  <% if scf_configuration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scf_configuration.errors.count, "error") %> prohibited this scf_configuration from being saved:</h2>
+
+      <ul>
+      <% scf_configuration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <select name="scf_configuration[scf_id]">
+      <% Scf.all.each do |scf| %>
+          <option value="<%= scf.id %>"><%= scf.name_with_description %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="field">
+    <select name="scf_configuration[client_id]">
+      <% Client.all.each do |client| %>
+          <option value="<%= client.id %>"><%= client.name %></option>
+      <% end %>
+    </select>
+  </div>
+  
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :scf_configuration_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

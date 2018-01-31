@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @configuration.client_id %>
+</p>
+
+<p>
+  <strong>Scf:</strong>
+  <%= @configuration.scf_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @configuration.value %>
+</p>
+
+<%= link_to 'Edit', edit_configuration_path(@configuration) %> |
+<%= link_to 'Back', configurations_path %>
