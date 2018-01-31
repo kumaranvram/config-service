@@ -2,29 +2,7 @@
 
 <h1>Scf Configurations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Client</th>
-      <th>Scf</th>
-      <th>Value</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @scf_configurations.each do |scf_configuration| %>
-      <tr>
-        <td><%= scf_configuration.client.name %></td>
-        <td><%= scf_configuration.scf.name_with_description %></td>
-        <td><%= scf_configuration.value %></td>
-        <td><%= link_to 'Show', scf_configuration %></td>
-        <td><%= link_to 'Edit', edit_scf_configuration_path(scf_configuration) %></td>
-        <td><%= link_to 'Destroy', scf_configuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list', scf_configuration: @scf_configuration %>
 
 <br>
 

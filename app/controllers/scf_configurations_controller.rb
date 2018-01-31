@@ -61,6 +61,14 @@ class ScfConfigurationsController < ApplicationController
     end
   end
 
+  def configuration_for_client
+    @scf_configurations = ScfConfiguration.where({:client_id => params[:client_id]})
+    respond_to do |format|
+      format.json {render json: @scf_configurations, status: :ok}
+      format.html {render :list}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_scf_configuration

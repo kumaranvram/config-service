@@ -10,6 +10,12 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @client = Client.find(params[:id])
+    @scf_configurations = ScfConfiguration.where({:client_id => @client.id})
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @client}
+    end
   end
 
   # GET /clients/new

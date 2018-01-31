@@ -2,11 +2,11 @@
 
 <p>
   <strong>Client:</strong>
-  <%= @scf_configuration.client.name %>
+  <a href="/clients/<%= @scf_configuration.client.id %>"><%= @scf_configuration.client.name %></a>
 </p>
 
 <p>
-  <strong>Scf:</strong>
+  <strong>SCF:</strong>
   <%= @scf_configuration.scf.name_with_description %>
 </p>
 

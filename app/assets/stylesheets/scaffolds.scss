@@ -82,3 +82,71 @@ div {
 label {
   display: block;
 }
+
+body {
+  background-color: #f6f6ff;
+  font-family: Calibri, Myriad;
+}
+
+#main {
+  width: 780px;
+  padding: 20px;
+  margin: auto;
+}
+
+table {
+  margin: auto;
+  width: 600px;
+  border-collapse: collapse;
+  border: 1px solid #fff; /*for older IE*/
+  border-style: hidden;
+}
+
+table caption {
+  background-color: #f79646;
+  color: #fff;
+  font-size: x-large;
+  font-weight: bold;
+  letter-spacing: .3em;
+}
+
+table thead th {
+  padding: 8px;
+  background-color: #fde9d9;
+  font-size: large;
+}
+
+table thead th#thDay {
+  width: 40%; 
+}
+
+table thead th#thRegular, table thead th#thOvertime, table thead th#thTotal {
+  width: 20%;
+}
+
+table th, table td {
+  padding: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f79646 #ccc;
+}
+
+table td {
+  text-align: right;
+}
+
+table tbody th {
+  text-align: left;
+  font-weight: normal;
+}
+
+table tfoot {
+  font-weight: bold;
+  font-size: large;
+  background-color: #687886;
+  color: #fff;
+}
+
+table tr.even {
+  background-color: #fde9d9;
+}
