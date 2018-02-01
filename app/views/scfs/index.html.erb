@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Default Value</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= scf.name %></td>
         <td><%= scf.description %></td>
+        <td><%= scf.default_value %></td>
         <td><%= link_to 'Show', scf %></td>
         <td><%= link_to 'Edit', edit_scf_path(scf) %></td>
         <td><%= link_to 'Destroy', scf, method: :delete, data: { confirm: 'Are you sure?' } %></td>

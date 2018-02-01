@@ -69,6 +69,6 @@ class ScfsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scf_params
-      params.require(:scf).permit(:name, :description)
+      params.require(:scf).permit(:name, :description, :default_value)
     end
 end

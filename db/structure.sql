@@ -72,39 +72,6 @@ ALTER SEQUENCE clients_id_seq OWNED BY clients.id;
 
 
 --
--- Name: configurations; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE configurations (
-    id bigint NOT NULL,
-    client_id integer,
-    scf_id integer,
-    value jsonb,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE configurations_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE configurations_id_seq OWNED BY configurations.id;
-
-
---
 -- Name: scf_configurations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -146,7 +113,8 @@ CREATE TABLE scfs (
     name character varying,
     description character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    default_value jsonb
 );
 
 
@@ -186,13 +154,6 @@ ALTER TABLE ONLY clients ALTER COLUMN id SET DEFAULT nextval('clients_id_seq'::r
 
 
 --
--- Name: configurations id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY configurations ALTER COLUMN id SET DEFAULT nextval('configurations_id_seq'::regclass);
-
-
---
 -- Name: scf_configurations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -223,14 +184,6 @@ ALTER TABLE ONLY clients
 
 
 --
--- Name: configurations configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY configurations
-    ADD CONSTRAINT configurations_pkey PRIMARY KEY (id);
-
-
---
 -- Name: scf_configurations scf_configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -255,6 +208,20 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
+-- Name: index_scf_configurations_on_client_id_and_scf_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_scf_configurations_on_client_id_and_scf_id ON scf_configurations USING btree (client_id, scf_id);
+
+
+--
+-- Name: index_scfs_on_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_scfs_on_name ON scfs USING btree (name);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -263,8 +230,9 @@ SET search_path TO "$user", public;
 INSERT INTO "schema_migrations" (version) VALUES
 ('20180131183810'),
 ('20180131183835'),
-('20180131184250'),
-('20180131184918'),
-('20180131185301');
+('20180131185301'),
+('20180201122851'),
+('20180201124207'),
+('20180201124819');
 
 
